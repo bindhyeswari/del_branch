@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // IIFE - Immediately invoked function expression
+        (function preloader(msg) {
+            // download an image and hold on to it till;
+
+            console.log(msg);
+            var img = new Image();
+            img.addEventListener('load', function () {
+                console.log('Image was downloaded');
+            });
+            img.src = 'http://www.w3.org/html/logo/downloads/HTML5_Logo_512.png';
+
+        })('Helo World!');
+
+        // Immediate object
+        ({
+            val: 10,
+            sayHello: function () {
+                console.log('Hello! I have a value of ' + this.val);
+            }
+        }).sayHello();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        var GLLAPI = {
+            init: function (path) {
+                // all code goes here ...
+                var components = path.split('.'), parent = this;
+                // check if the first term is GLLAPI
+                if ( components[0] === 'GLLAPI' ) {
+                    components.splice(0, 1); // remove the first element as it is already pointing to parent
+                }
+
+                for (var i = 0, len = components.length; i < len; i++) {
+                    if ( typeof parent[components[i]] === 'undefined' ) parent[components[i]] = {};
+                    console.log(JSON.stringify(GLLAPI)); // console.log the modules created
+                    parent = parent[components[i]];
+                }
+
+                return parent;
+
+            }
+        };
+
+        var fn = GLLAPI.init('GLLAPI.security.frontend.certificate.publickey');
+        var sessionid = GLLAPI.init('GLLAPI.security.frontend.sessionid');
+
+
+        GLLAPI.security.frontend.certificate.publickey = function () {
+            return '545-asdfa163asdf-afaafasdf-as453a4sdf354as3d4f';
+        };
+
+        console.log(GLLAPI.security.frontend.certificate.publickey());
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

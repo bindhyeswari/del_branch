@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        div.container {
+            border: 1px solid gray;
+            padding: 1em;
+
+        }
+
+        div.container > div.data {
+            height: 100px;
+            width: 100px;
+            background-color: gray;
+            margin: 1em;
+            float: right;
+        }
+
+
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            HTMLElement.prototype.appendTo = function (parentNode) {
+                parentNode.appendChild(this);
+            };
+
+            var div = document.createElement('div');
+            div.innerHTML = 'New element';
+            div.appendTo(document.body);
+
+
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="data"></div>
+        <div class="data"></div>
+        <div class="data"></div>
+        <div style="clear: both;"></div>
+    </div>
+</body>
+</html>
